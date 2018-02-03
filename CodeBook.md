@@ -32,6 +32,7 @@ For each record in the dataset it is provided:
 - An identifier of the subject who carried out the experiment. 
 ## Merge the Training and Test Sets
 After downloading the required R packages and setting the working directory, I read all the files listed below into tables.
+
 Variables:
 
 train1 – X_train.txt
