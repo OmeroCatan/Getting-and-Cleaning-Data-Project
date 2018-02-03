@@ -67,8 +67,6 @@ DefinitionVector – vector that identified IDs for activity and subject
 
 Mean_and_STD – data set of only mean and standard deviation
 
-## To apply descriptive names I used the gsub function to change the abbreviations to the full names found in the source 
-files describing the data
-## I then used the aggregate function to create a tidy data set as instruction in the project description and printed it to the 
-directory of my choosing.
+## To apply descriptive names I used the gsub function to change the abbreviations to the full names found in the source files describing the data
+## I then used the aggregate function to create a tidy data set as instruction in the project description and printed it to the directory of my choosing.
 
