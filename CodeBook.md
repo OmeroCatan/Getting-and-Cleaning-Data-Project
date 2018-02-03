@@ -4,9 +4,11 @@ This is the codebook outlining additional information about the data, created va
 and actions performed to obtain the desired tidy data set, completing the project’s objective.
 ## Source Data
 The data was pulled from UMI Machine Learning Repository and was collected using accelerometers from the Samsung Galaxy S smartphone. 
+
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 ## Data Set Information
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+
 Pulled from The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. 
 Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing 
 a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, we captured 3-axial 
