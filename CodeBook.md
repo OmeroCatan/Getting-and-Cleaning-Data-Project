@@ -33,23 +33,39 @@ For each record in the dataset it is provided:
 ## Merge the Training and Test Sets
 After downloading the required R packages and setting the working directory, I read all the files listed below into tables.
 Variables:
+
 train1 – X_train.txt
+
 train2 – y_train.txt
+
 train3 – subject_train.txt
+
 test1 – X_test.txt
+
 test2 – y_test.txt
+
 test3 – subject_test.txt
+
 featurefile – features.txt
+
 actitityLabelfile – activity_Labels.txt
+
 ## I then created column names and combined the data into one set.
 Variables:
+
 trainingset – Table of training files
+
 testset – Table of test files
+
 completeset – Combined table
+
 ## To pull only the mean and standard deviation, I created a vector that would be true only for the necessary columns.
 Variables:
+
 DefinitionVector – vector that identified IDs for activity and subject
+
 Mean_and_STD – data set of only mean and standard deviation
+
 ## To apply descriptive names I used the gsub function to change the abbreviations to the full names found in the source 
 files describing the data
 ## I then used the aggregate function to create a tidy data set as instruction in the project description and printed it to the 
