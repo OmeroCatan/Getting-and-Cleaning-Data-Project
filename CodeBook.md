@@ -23,6 +23,7 @@ force is assumed to have only low frequency components, therefore a filter with 
 a vector of features was obtained by calculating variables from the time and frequency domain.
 ## Attribute Information
 http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones 
+
 For each record in the dataset it is provided: 
 - Triaxial acceleration from the accelerometer (total acceleration) and the estimated body acceleration. 
 - Triaxial Angular velocity from the gyroscope. 
