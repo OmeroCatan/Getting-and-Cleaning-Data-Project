@@ -34,8 +34,7 @@ train3 <- read.table("C:/Users/omero_000/Desktop/DataScience/datacleaningproject
 
 test1 <- read.table("C:/Users/omero_000/Desktop/DataScience/datacleaningproject/data/UCI HAR Dataset/test/X_test.txt")
 test2 <- read.table("C:/Users/omero_000/Desktop/DataScience/datacleaningproject/data/UCI HAR Dataset/test/y_test.txt")
-test3 <- read.table("C:/Users/omero_000/Desktop/DataScience/datacleaningproject/data/UCI HAR Dataset/test/subject_test.txt")
-
+test3 <- read.table("C:/Users/omero_000/Desktop/DataScience/datacleaningproject/data/UCI HAR Dataset/test/subject_test.txt")p
 featurefile <- read.table("C:/Users/omero_000/Desktop/DataScience/datacleaningproject/data/UCI HAR Dataset/features.txt")
 
 activityLabelfile <- read.table("C:/Users/omero_000/Desktop/DataScience/datacleaningproject/data/UCI HAR Dataset/activity_Labels.txt")
@@ -78,7 +77,7 @@ names(completeset)<- gsub("Gyro", "Gyroscope", names(completeset))
 names(completeset)<- gsub("Mag", "Magnitude", names(completeset))
 names(completeset)<- gsub("BodyBody", "Body", names(completeset))
 
-# Create and Print Second "Tidy" Dataset
+# Create and print tidy dataset
 
 TidyData <- aggregate(.~SubjectID + ActivityID, newdata, mean)
 
