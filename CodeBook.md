@@ -42,7 +42,6 @@ train2 – y_train.txt
 train3 – subject_train.txt
 
 test1 – X_test.txt
-
 test2 – y_test.txt
 
 test3 – subject_test.txt
@@ -70,7 +69,7 @@ ActivityID - names for activity variable
 
 SubjectID - names for subject variable
 
-completeset - combined data set including the X, y and subject data from both Training and Testing
+completeset - combined data set including the X, y and subject data from both training and testing
 
 ## Pull Only Mean and Standard Deviation Columns
 I utilized the grep function to pull only the mean and standard deviation columns from the original features provided.
