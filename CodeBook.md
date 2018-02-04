@@ -1,7 +1,7 @@
 # Codebook for Getting and Cleaning Data Coursera Project
 ## Description
 This is the codebook outlining additional information about the data, created variables 
-and actions performed to obtain the desired tidy data set, completing the project’s objective.
+and actions performed to obtain the desired tidy data set; completing the project’s objective.
 ## Source Data
 The data was pulled from UMI Machine Learning Repository and was collected using accelerometers from the Samsung Galaxy S smartphone. 
 
