@@ -50,7 +50,7 @@ features <- rbind(train1, test1)
 activity <- rbind(train2, test2)
 subject <- rbind(train3, test3)
 
-# Name the new data sets so they can be called. The features is pulled from provided data.
+# Name the new data sets so they can be called. The features name is pulled from provided data.
 
 names(features) <- featurefilename$V2
 names(activity) <- “ActivityID”
