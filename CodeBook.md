@@ -84,7 +84,7 @@ mean_and_std - assigned the names SubjectID and ActivityID as column labels
 newdata – data set of only mean and standard deviation including the new column names referenced above
 
 ## Apply Descriptive Names to the Columns
-First I pulled the names from the original labels file and then utilized the gsub function to change the abbreviations to the full names found in the source files describing the data
+First I pulled the names from the original labels file and then utilized the gsub function to change the abbreviations to full names based on the information found in the source files.
 
 ## Create Tidy Data
 I used the aggregate function to create a tidy data set as instruction in the project description and printed it to the directory of my choosing.
