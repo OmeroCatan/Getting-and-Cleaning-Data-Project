@@ -34,7 +34,7 @@ train3 <- read.table("C:/Users/omero_000/Desktop/DataScience/datacleaningproject
 
 test1 <- read.table("C:/Users/omero_000/Desktop/DataScience/datacleaningproject/data/UCI HAR Dataset/test/X_test.txt")
 test2 <- read.table("C:/Users/omero_000/Desktop/DataScience/datacleaningproject/data/UCI HAR Dataset/test/y_test.txt")
-test3 <- read.table("C:/Users/omero_000/Desktop/DataScience/datacleaningproject/data/UCI HAR Dataset/test/subject_test.txt")p
+test3 <- read.table("C:/Users/omero_000/Desktop/DataScience/datacleaningproject/data/UCI HAR Dataset/test/subject_test.txt")
 featurefile <- read.table("C:/Users/omero_000/Desktop/DataScience/datacleaningproject/data/UCI HAR Dataset/features.txt")
 
 activityLabelfile <- read.table("C:/Users/omero_000/Desktop/DataScience/datacleaningproject/data/UCI HAR Dataset/activity_Labels.txt")
