@@ -30,7 +30,7 @@ For each record in the dataset it is provided:
 - A 561-feature vector with time and frequency domain variables. 
 - Its activity label. 
 - An identifier of the subject who carried out the experiment. 
-## Merge the Training and Test Sets
+## Importing Data
 After downloading the required R packages and setting the working directory, I read all the files listed below into tables.
 
 Variables:
@@ -51,22 +51,41 @@ featurefile – features.txt
 
 actitityLabelfile – activity_Labels.txt
 
-## I then created column names and combined the data into one set.
+## Review Provided Data
+Before moving forward, I read through the provided ReadMe, Train, Test, Features and Activity files. 
+I noticed that the "X" files related to the features of measurement, the "y" files to the activity being performed, and the "subject" files to the person performing said action.
+
+## Data Combination
+I combined the x, y, and subject data for both the test and training sets and then created one data set compiling all the data together.
+
 Variables:
 
-trainingset – Table of training files
+features - combination of X
 
-testset – Table of test files
+activity - combination of y
 
-completeset – Combined table
+subject - combination of subject
 
-## To pull only the mean and standard deviation, I created a vector that would be true only for the necessary columns.
+ActivityID - names for activity variable
+
+SubjectID - names for subject variable
+
+completeset - combined data set including the X, y and subject data from both Training and Testing
+
+## Pull Only Mean and Standard Deviation Columns
+I utilized the grep function to pull only the mean and standard deviation columns from the original features provided.
+
 Variables:
 
-DefinitionVector – vector that identified IDs for activity and subject
+mean_and_std_only – only the mean and standard deviation data
 
-Mean_and_STD – data set of only mean and standard deviation
+mean_and_std - assigned the names SubjectID and ActivityID as column labels 
 
-## To apply descriptive names I used the gsub function to change the abbreviations to the full names found in the source files describing the data
-## I then used the aggregate function to create a tidy data set as instruction in the project description and printed it to the directory of my choosing.
+newdata – data set of only mean and standard deviation including the new column names referenced above
+
+## Apply Descriptive Names to the Columns
+First I pulled the names from the original labels file and then utilized the gsub function to change the abbreviations to the full names found in the source files describing the data
+
+## Create Tidy Data
+I used the aggregate function to create a tidy data set as instruction in the project description and printed it to the directory of my choosing.
 
