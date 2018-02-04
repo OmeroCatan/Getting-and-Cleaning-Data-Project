@@ -1,9 +1,9 @@
-# Setting Working Directory
+# Set working directory
 
 setwd("C:/Users/omero_000/Desktop/DataScience")
 getwd()
 
-# Install and Load Packages
+# Install and load packages
 
 install.packages("data.table")
 install.packages("plyr")
@@ -13,18 +13,20 @@ library(data.table)
 library(plyr)
 library(dplyr)
 
-# Download and Unzip the Files
+# Download and unzip the files
  
 if(!file.exists("./datacleaningproject"))
   {dir.create("./datacleaningproject")}
+
 fileUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
 
-download.file(url = fileUrl, destfile = dest)
 dest <- "C:/Users/omero_000/Desktop/DataScience/datacleaninproject.zip"
+download.file(url = fileUrl, destfile = dest)
+
 dest1 <- "C:/Users/omero_000/Desktop/DataScience/datacleaningproject/data"
 unzip(zipfile = dest, exdir = dest1)
 
-# Read the Train, Test, Features, and Activity Files
+# Read the Train, Test, Features, and Activity files
 
 train1 <- read.table("C:/Users/omero_000/Desktop/DataScience/datacleaningproject/data/UCI HAR Dataset/train/X_train.txt")
 train2 <- read.table("C:/Users/omero_000/Desktop/DataScience/datacleaningproject/data/UCI HAR Dataset/train/y_train.txt")
@@ -38,34 +40,36 @@ featurefile <- read.table("C:/Users/omero_000/Desktop/DataScience/datacleaningpr
 
 activityLabelfile <- read.table("C:/Users/omero_000/Desktop/DataScience/datacleaningproject/data/UCI HAR Dataset/activity_Labels.txt")
 
-# Assign Column Names to the Files
+# Analyze given data
+# Read the ReadMe, Train, Test, Features, and Activity files
+# The Y files hold the labels of activity, the X holds the features and the subject is the person performing the activity
 
-colnames(train1) <- featurefile[,2]
-colnames(train2) <- "ID_of_Activity"
-colnames(train3) <- "ID_of_Subject"
+# Combine the X, y, and subject data between the test and training sets
 
-colnames(test1) <- featurefile[,2]
-colnames(test2) <- "ID_of_Activity"
-colnames(test3) <- "ID_of_Subject"
+features <- rbind(train1, test1)
+activity <- rbind(train2, test2)
+subject <- rbind(train3, test3)
 
-colnames(activityLabelfile) <- c("ID_of_Activity", "Type_of_Activity")
+# Name the new data sets so they can be called. The features is pulled from provided data.
 
-# Combine the Test and Training Files into One Data Set
+names(features) <- featurefilename$V2
+names(activity) <- “ActivityID”
+names(subject) <- “SubjectID”
 
-trainingset <- cbind(train1, train2, train3)
-testingset <- cbind(test1, test2, test3)
-completeset <- rbind(trainingset, testingset)
+# Create one data set
 
-# Pull only the Mean and Std Data Required for the Assignment
+completeset <- cbind(features,activity,subject)
 
-completesetColNames <- colnames(completeset)
-DefinitionVector <- (grepl("ID_of_Activity", completesetColNames) | 
-                     grepl("ID_of_Subject", completesetColNames) | 
-                     grepl("mean", completesetColNames) | 
-                     grepl("std", completesetColNames))
-Mean_and_Std <- completeset[, DefinitionVector == TRUE]
+# Pull only the Mean and Std Data required for the assignment
+# Mean and Std attributes to the features (X) data
 
-# Apply Descriptive Names to the Columns
+mean_and_std_only <- featurefile$V2[grep("mean\\(\\)|std\\(\\)", featurefile$V2)]
+mean_and_std <- c(as.character(mean_and_std_only), “SubjectID”, “ActivityID”)
+newdata <- subset(completeset, select = mean_and_std)
+
+# Apply descriptive activity names
+
+newdata$ActivityID<- activityLabelfile[newdata$ActivityID, 2]
 
 names(completeset)<- gsub("^t", "Time", names(completeset))
 names(completeset)<- gsub("^f", "Frequency", names(completeset))
@@ -74,12 +78,9 @@ names(completeset)<- gsub("Gyro", "Gyroscope", names(completeset))
 names(completeset)<- gsub("Mag", "Magnitude", names(completeset))
 names(completeset)<- gsub("BodyBody", "Body", names(completeset))
 
-# Create Second "Tidy" Dataset
+# Create and Print Second "Tidy" Dataset
 
-TidyData <- aggregate(.~ID_of_Subject + ID_of_Activity, completeset, mean)
-TidyData <- TidyData[order(TidyData$ID_of_Subject, TidyData$ID_of_Activity),]
-
-# Print Tidy Dataset
+TidyData <- aggregate(.~SubjectID + ActivityID, newdata, mean)
 
 setwd("C:/Users/omero_000/Desktop/DataScience/datacleaningproject")
 write.table(TidyData, "TidyData.txt", row.names = FALSE)
